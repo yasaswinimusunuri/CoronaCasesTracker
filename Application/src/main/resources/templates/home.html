@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" 
+          href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  
+  <blockquote class="blockquote text-center">
+  <h6 class="display-4">Corona virus cases list</h6>
+ </blockquote>
+ 
+  
+  <div class="jumbotron">
+  <p class="lead">Total number of new cases today world wide</p>
+  <h1 class="display-4" th:text="${TotalCount}"></h1>
+  </div>
+
+  <body>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">State</th>
+      <th scope="col">Country</th>
+      <th scope="col">New cases</th>
+    </tr>
+     </thead>
+     <tbody>
+      <tr th:each="LocationDetail : ${LocationDetails}">
+        <td th:text="${LocationDetail .State}">State</td>
+        <td th:text="${LocationDetail .Country}">Country</td>
+        <td th:text="${LocationDetail .NewCases}">Total new cases today</td>
+      </tr>
+    </tbody>
+</table>
+
+</html>
